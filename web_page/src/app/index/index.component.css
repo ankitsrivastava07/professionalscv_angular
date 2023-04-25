@@ -1,0 +1,20 @@
+#header{
+    background-color: #563d7c;
+    padding-left: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.bd-navbar .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    color: #fff;
+}
+
+#app_name{
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    color: #fff;
+
+}
