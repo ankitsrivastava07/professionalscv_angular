@@ -8339,3 +8339,9 @@
             top: 20px;
             margin: 1px auto;
         }
+
+        .emsg {
+          color: #c12020;
+          font-weight: 700;
+          font-size: 12px;
+      }
