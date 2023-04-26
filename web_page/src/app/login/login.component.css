@@ -191,3 +191,31 @@ h2 {
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
+
+
+  #login {
+    padding: 1em 0;
+    top: 20px;
+    margin: 1px auto;
+}
+
+.emsg {
+  color: #c12020;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#submitBtn {
+position: inherit;
+top: 3px;
+left: 0;
+right: 0;
+margin: 0 auto;
+}
+
+.login-wrap {
+position: relative;
+background: #fff;
+border-radius: 10px;
+box-shadow: 0 10px 34px -15px #0000003d;
+}

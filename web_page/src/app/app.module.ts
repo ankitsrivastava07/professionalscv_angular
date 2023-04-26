@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SliderComponent } from './slider/slider.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserModule } from '@angular/platform-browser';
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
-    SliderComponent
+    SliderComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,

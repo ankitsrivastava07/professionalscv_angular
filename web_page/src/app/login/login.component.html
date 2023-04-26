@@ -9,7 +9,6 @@
     <title>Login #6</title>
   </head>
   <body>
-  
 
   <div class="d-lg-flex half">
     <div class="bg order-1 order-md-2" style="background-image: url('/assets/img/bg_1.jpg');"></div>
@@ -21,16 +20,30 @@
             <div class="mb-4">
               <h3>Sign In</h3>
             </div>
-            <form action="#" method="post">
+            <form #loginForm="ngForm" class="login-form">
               <div class="form-group first">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username">
+                <label for="username">Enter Username</label>
+                <input type="text" #username="ngModel" ngModel name="username" class="form-control" required>
+
+				<div *ngIf="username && (username.dirty || username.touched)" class="emsg">
+					<div *ngIf="username.errors?.['required']">
+						<span> Please enter username.</span>
+					</div>
+				  </div>
 
               </div>
               <div class="form-group last mb-3">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password">
-                
+                <input type="password" name="password" #password="ngModel" ngModel class="form-control" required>
+
+				<div *ngIf="password && (password.dirty || password.touched)" class="emsg">
+					
+					<div *ngIf="password.errors?.['required']">
+						<span> Please enter password.</span>
+					</div>
+
+				  </div>
+
               </div>
               
               <div class="d-flex mb-5 align-items-center">
@@ -38,20 +51,15 @@
                   <input type="checkbox" checked="checked"/>
                   <div class="control__indicator"></div>
                 </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
+                <span class="ml-auto"><a href="/forget-password" class="forgot-pass">Forgot Password</a></span> 
               </div>
 
-              <input type="submit" value="Log In" class="btn btn-block btn-primary">
+              <input type="submit" [disabled]="loginForm.form.invalid" value="Log In" class="btn btn-block btn-primary">
 
               <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
               
               <div class="social-login">
-                <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
-                  <span class="icon-facebook mr-3"></span> Login with Facebook
-                </a>
-                <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
-                  <span class="icon-twitter mr-3"></span> Login with  Twitter
-                </a>
+        
                 <a href="#" class="google btn d-flex justify-content-center align-items-center">
                   <span class="icon-google mr-3"></span> Login with  Google
                 </a>
