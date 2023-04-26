@@ -14,11 +14,11 @@
 		      	<h3 class="text-center mb-4">Have an account ?</h3>
 			<form #loginForm="ngForm" class="login-form">
 		      		<div class="form-group">
-		      			<input type="text" ngModel #username ="ngModel" name="username" class="form-control rounded-left" placeholder="Username" required>
+		      			<input type="text" ngModel #username ="ngModel" minlength="6" maxlength="18" name="username" class="form-control rounded-left" placeholder="Username" required>
 					
 						  <div *ngIf="username && (username.dirty || username.touched)" class="emsg">
 							<div *ngIf="username.errors?.['required']">
-							  Please enter username.
+								<span> Please enter username.</span>
 							</div>
 
 							<div *ngIf="username.errors?.pattern">
@@ -32,7 +32,7 @@
 
 				  <div *ngIf="password && (password.dirty || password.touched)" class="emsg">
 					<div *ngIf="password.errors?.['required']">
-					  Please enter password.
+						<span> Please enter password.</span>
 					</div>
 				  </div>
 
