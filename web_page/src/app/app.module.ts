@@ -14,6 +14,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ReqInterceptorComponent } from './req-interceptor/req-interceptor.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReqInterceptorComponent } from './req-interceptor/req-interceptor.compo
     RegisterComponent,
     SliderComponent,
     ForgetPasswordComponent,
-    ReqInterceptorComponent
+    ReqInterceptorComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,
