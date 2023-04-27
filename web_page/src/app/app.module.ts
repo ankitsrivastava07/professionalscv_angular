@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SliderComponent } from './slider/slider.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ReqInterceptorComponent } from './req-interceptor/req-interceptor.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,11 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     LoginComponent,
     RegisterComponent,
     SliderComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ReqInterceptorComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     NgbModule,
