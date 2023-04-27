@@ -36,23 +36,10 @@ h2 {
     .half .contents, .half .bg {
       width: 100%; } }
   .half .contents .form-group, .half .bg .form-group {
-    overflow: hidden;
     margin-bottom: 0;
     border: 1px solid #efefef;
     padding: 15px 15px;
-    border-bottom: none;
-    position: relative; }
-    .half .contents .form-group label, .half .bg .form-group label {
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      -webkit-transition: .3s all ease;
-      -o-transition: .3s all ease;
-      transition: .3s all ease; }
-    .half .contents .form-group input:focus + label, .half .bg .form-group input:focus + label {
-      margin-top: -20px; }
+    border-bottom: none; }
     .half .contents .form-group.first, .half .bg .form-group.first {
       border-top-left-radius: 7px;
       border-top-right-radius: 7px; }
@@ -65,8 +52,6 @@ h2 {
       display: block;
       margin-bottom: 0;
       color: #b3b3b3; }
-    .half .contents .form-group.field--not-empty label, .half .bg .form-group.field--not-empty label {
-      margin-top: -20px; }
   .half .contents .form-control, .half .bg .form-control {
     border: none;
     padding: 0;
@@ -94,29 +79,6 @@ h2 {
   position: relative;
   top: 2px;
   font-size: 14px; }
-
-.social-login a {
-  display: block;
-  text-decoration: none;
-  display: block;
-  position: relative;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 10px; }
-  .social-login a:hover {
-    color: #fff; }
-  .social-login a.facebook {
-    background: #3b5998; }
-    .social-login a.facebook:hover {
-      background: #344e86; }
-  .social-login a.twitter {
-    background: #1da1f2; }
-    .social-login a.twitter:hover {
-      background: #0d95e8; }
-  .social-login a.google {
-    background: #ea4335; }
-    .social-login a.google:hover {
-      background: #e82e1e; }
 
 .control {
   display: block;
@@ -191,7 +153,6 @@ h2 {
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
-
 
   #login {
     padding: 1em 0;

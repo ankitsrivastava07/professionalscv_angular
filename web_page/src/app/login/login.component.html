@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
   </head>
   <body>
@@ -16,33 +15,30 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7">
-            <div class="mb-4">
-              <h3>Sign In</h3>
-            </div>
-            <form #loginForm="ngForm" class="login-form">
+            <h3>Sign in</h3>
+            <form form #loginForm="ngForm" class="login-form">
               <div class="form-group first">
                 <label for="username">Enter Username</label>
-                <input type="text" #username="ngModel" ngModel name="username" class="form-control" required>
+                <input type="text" #username="ngModel" ngModel name="username" class="form-control" placeholder="example@gmail.com" required>
 
-				<div *ngIf="username && (username.dirty || username.touched)" class="emsg">
-					<div *ngIf="username.errors?.['required']">
-						<span> Please enter username.</span>
-					</div>
-				  </div>
+                <div *ngIf="username && (username.dirty || username.touched)" class="emsg">
+                  <div *ngIf="username.errors?.['required']">
+                    <span> Please enter username.</span>
+                  </div>
+                  </div>
 
               </div>
               <div class="form-group last mb-3">
-                <label for="password">Password</label>
-                <input type="password" name="password" #password="ngModel" ngModel class="form-control" required>
-
-				<div *ngIf="password && (password.dirty || password.touched)" class="emsg">
-					
-					<div *ngIf="password.errors?.['required']">
-						<span> Please enter password.</span>
-					</div>
-
-				  </div>
-
+                <label for="password">Enter Password</label>
+                <input type="password" class="form-control" #password="ngModel" ngModel name="password" placeholder="Your Password" required>
+            
+                <div *ngIf="password && (password.dirty || password.touched)" class="emsg">
+                  <div *ngIf="password.errors?.['required']">
+                    <span> Please enter password.</span>
+                  </div>
+        
+                  </div>
+            
               </div>
               
               <div class="d-flex mb-5 align-items-center">
@@ -53,16 +49,12 @@
                 <span class="ml-auto"><a href="/forget-password" class="forgot-pass">Forgot Password</a></span> 
               </div>
 
-              <input type="submit" [disabled]="loginForm.form.invalid" value="Log In" class="btn btn-block btn-primary">
-
-              <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
-              
-              <div class="social-login">
-        
-                <a href="#" class="google btn d-flex justify-content-center align-items-center">
-                  <span class="icon-google mr-3"></span> Login with  Google
-                </a>
+              <div class="d-flex mb-5 align-items-center">
+                <span class="control control--checkbox mb-0"><a href="/signup" class="forgot-pass">Sign up</a></span> 
               </div>
+
+              <input type="submit" [disabled]="loginForm.form.invalid" value="Sign in" class="btn btn-block btn-primary">
+
             </form>
           </div>
         </div>
