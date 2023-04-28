@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,15 @@ export class HeaderComponent {
 
   public myInterval: number = 10;
   private _activeSlideIndex: number = 0;
+  categories:any[] =[];
+
+  constructor(private http:HttpService) {}
+
+  ngOnInit() {
+    this.http.getCategories().subscribe(data => {
+      this.categories =  data.data
+    })
+  }
   
   get activeSlideIndex(): number {
     return this._activeSlideIndex;

@@ -9,10 +9,15 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  loginApi = 'http://localhost:8081/unauthenticated/api/login'
+  loginApi = 'http://ec2-43-204-65-53.ap-south-1.compute.amazonaws.com:8081/unauthenticated/api/categories'
+  categoriesApi = 'http://ec2-43-204-65-53.ap-south-1.compute.amazonaws.com:8081/unauthenticated/api/categories'
 
   login(formData:any) {
     return this.httpClient.post<ApiResponse>(this.loginApi, formData);
+  }
+
+  getCategories(){
+    return this.httpClient.get<ApiResponse>(this.categoriesApi);
   }
 
 }
