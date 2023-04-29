@@ -10,7 +10,7 @@ export class HeaderComponent {
 
   public myInterval: number = 10;
   private _activeSlideIndex: number = 0;
-  categories:any[] =[];
+  categories:any[] =[1,2,3];
 
   constructor(private http:HttpService) {}
 
