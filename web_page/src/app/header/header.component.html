@@ -17,14 +17,13 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Articles
+            Articles
         </a>
         <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <li *ngFor ="let category of categories">
-              <a class="dropdown-item" href="{{category}}">Test Test </a>
+            <hr><a class="dropdown-item" href="{{category.slugName}}">{{category.name}} </a>
           </li>
         </div>
-
       </li>
 
       <li class="nav-item">
@@ -37,6 +36,3 @@
     </ul>
   </div>
 </nav>
-
-
-{{categories | json}}
