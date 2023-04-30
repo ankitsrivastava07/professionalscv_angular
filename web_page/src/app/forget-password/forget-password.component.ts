@@ -22,7 +22,7 @@ export class ForgetPasswordComponent {
       "browserName" : this.getBrowserName(),
       "email": formData.email,
       "location": "",
-      "redirectUri" : window.location.host  + '/password-reset-confirmation-email'
+      "redirectUri" : window.location.href  + '/password-reset-confirmation-email'
     }
 
     console.log(formData)
