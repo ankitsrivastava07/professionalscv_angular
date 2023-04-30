@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent {
   private _activeSlideIndex: number = 0;
   categories:any[] =[];
 
-  constructor(private http:HttpService) {}
+  constructor(private http:HttpService, private route: Router) {}
 
   ngOnInit() {
     this.http.getCategories().subscribe(data => {

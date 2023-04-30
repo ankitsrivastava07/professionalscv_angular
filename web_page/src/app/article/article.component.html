@@ -1,0 +1,19 @@
+<div *ngIf="apiResponse!== null && apiResponse!== undefined ">
+    <div id="format">
+ <div *ngFor="let question of apiResponse.questions; let i = index">
+     <h5 class="question"> {{i+1}}) {{question.question}}</h5>
+     <p class="ans">{{question.answer.answer}}</p>
+ 
+  <ul>
+     <li *ngFor="let keyPoint of question.answer.keyPoints">
+        {{keyPoint}}
+     </li>
+ 
+     <div *ngFor="let img of question.answer.images">
+        <img src="{{img.fileAccessURI}}" alt="{{img.fileName}}">
+     </div>
+ 
+ </ul>
+ </div>
+ </div>
+ </div>
