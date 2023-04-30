@@ -17,26 +17,25 @@ export class ForgetPasswordComponent {
 
   constructor(private http: HttpService, private route: Router) {}
 
-  emailSentForPasswordReset(formData:any) {
-
-    this.getLocation();
-
-    formData = {
-      "browserName" : this.getBrowserName(),
-      "email": formData.email,
-      "location": "",
-      "redirectUri" : window.location.origin  + '/password-reset-confirmation-email/'
-    }
-  }
-
-  findAccount(formData:any) {
+  findAccount(forGetPassword:any) {
     this.apiResponse = new ApiResponse();
-    this.http.findAccount(formData.email).subscribe(data => {
-      this.apiResponse = data
+    this.http.findAccount(forGetPassword.email).subscribe(data => {
+    this.apiResponse = data
     if(this.apiResponse.status === true) {
-        this.http.sendEmailForPasswordReset(formData.email, formData).subscribe(data => {
-          this.route.navigate(['/password-reset-confirmation-email'])
-       })
+
+      this.getLocation();
+
+      const emailConfirmation = {
+        "browserName" : this.getBrowserName(),
+        "email": forGetPassword.email,
+        "location": "",
+        "redirectUri" : window.location.origin  + '/change-password/'
+      }
+
+      this.http.sendEmailForPasswordReset(forGetPassword.email, emailConfirmation)
+      .subscribe(data => {
+         this.route.navigate(['/password-reset-confirmation-email'])
+      })
       }
     })
   }

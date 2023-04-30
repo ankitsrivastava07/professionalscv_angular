@@ -18,7 +18,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ArticleComponent } from './article/article.component';
 import { EmailSentConfirmationComponent } from './email-sent-confirmation/email-sent-confirmation.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     FooterComponent,
     ComingSoonComponent,
     ArticleComponent,
-    EmailSentConfirmationComponent,
-    ChangePasswordComponent,
+    EmailSentConfirmationComponent
   ],
   imports: [
     HttpClientModule,

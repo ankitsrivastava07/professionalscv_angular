@@ -16,6 +16,8 @@ export class HttpService {
 
   emailCheckApi='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
 
+  validateTokenApi='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
+
   login(formData:any) {
     return this.httpClient.post<ApiResponse>(this.loginApi, formData);
   }
@@ -34,6 +36,10 @@ export class HttpService {
 
   findAccount(email:string) {
     return this.httpClient.get<ApiResponse>(this.emailCheckApi + email + '/find')
+  }
+
+  validateToken(token: string) {
+    return this.httpClient.get<ApiResponse>(this.validateToken + token + '/validate')
   }
 
 }
