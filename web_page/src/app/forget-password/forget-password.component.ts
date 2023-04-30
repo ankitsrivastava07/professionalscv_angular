@@ -12,6 +12,8 @@ export class ForgetPasswordComponent {
   lat:number = 0;
   lng:number = 0;
 
+  apiResponse:any
+
   constructor(private http: HttpService, private route: Router) {}
 
   emailSentForPasswordReset(formData:any) {
@@ -24,11 +26,15 @@ export class ForgetPasswordComponent {
       "location": "",
       "redirectUri" : window.location.origin  + '/password-reset-confirmation-email/'
     }
+  }
 
-    console.log(formData)
-    this.http.sendEmailForPasswordReset(formData.email, formData).subscribe(data => {
-     if(data.status === true) {
-         this.route.navigate(['/password-reset-confirmation-email'])
+  findAccount(formData:any) {
+    this.http.findAccount(formData.email).subscribe(data => {
+      this.apiResponse = data
+    if(this.apiResponse.status === true) {
+        this.http.sendEmailForPasswordReset(formData.email, formData).subscribe(data => {
+          this.route.navigate(['/password-reset-confirmation-email'])
+       })
       }
     })
   }

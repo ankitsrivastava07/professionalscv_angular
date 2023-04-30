@@ -12,8 +12,9 @@ export class HttpService {
   loginApi = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/login'
   categoriesApi ='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/categories'
   articleApi = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/article-slug-name/'
-
   passwordResetEmail = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
+
+  emailCheckApi='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
 
   login(formData:any) {
     return this.httpClient.post<ApiResponse>(this.loginApi, formData);
@@ -29,6 +30,10 @@ export class HttpService {
 
   sendEmailForPasswordReset(email:string, formData:any) {
     return this.httpClient.post<ApiResponse>(this.passwordResetEmail + email + '/password-reset-email', formData)
+  }
+
+  findAccount(email:string) {
+    return this.httpClient.get<ApiResponse>(this.emailCheckApi + email + '/find')
   }
 
 }
