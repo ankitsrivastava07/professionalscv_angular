@@ -6,9 +6,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SliderComponent } from './slider/slider.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ArticleComponent } from './article/article.component';
+import { EmailSentConfirmationComponent } from './email-sent-confirmation/email-sent-confirmation.component';
 
 const routes: Routes = [
   {path: '', component: SliderComponent},
+  {path: 'password-reset-confirmation-email', component: EmailSentConfirmationComponent},
   {path: 'article/:articleSlugName', component: ArticleComponent},
   {path: 'forget-password', component: ForgetPasswordComponent},
   {path: 'signin', component: LoginComponent},

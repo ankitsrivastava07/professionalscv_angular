@@ -17,6 +17,8 @@ import { ReqInterceptorComponent } from './req-interceptor/req-interceptor.compo
 import { FooterComponent } from './footer/footer.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ArticleComponent } from './article/article.component';
+import { EmailSentConfirmationComponent } from './email-sent-confirmation/email-sent-confirmation.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ArticleComponent } from './article/article.component';
     FooterComponent,
     ComingSoonComponent,
     ArticleComponent,
+    EmailSentConfirmationComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     HttpClientModule,
@@ -39,7 +43,7 @@ import { ArticleComponent } from './article/article.component';
     FormsModule,
     NgbModule,
     ReactiveFormsModule,             
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [IndexComponent]

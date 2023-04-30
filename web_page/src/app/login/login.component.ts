@@ -15,11 +15,7 @@ export class LoginComponent {
   isValidLogin = false
   
   login(formData: any) {
-
     this.apiResponse = new ApiResponse()
-
-    console.log(formData.value)
-
     this.httpService.login(formData.value).subscribe(data => {
       this.apiResponse = data;
       this.isValidLogin = data.status

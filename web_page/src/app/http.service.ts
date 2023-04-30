@@ -13,6 +13,8 @@ export class HttpService {
   categoriesApi ='http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/categories'
   articleApi = 'http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/article-slug-name/'
 
+  passwordResetEmail = 'http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/'
+
   login(formData:any) {
     return this.httpClient.post<ApiResponse>(this.loginApi, formData);
   }
@@ -23,6 +25,10 @@ export class HttpService {
 
   getArticle(articleName:string) {
     return this.httpClient.get<ApiResponse>(this.articleApi+articleName + "/get-article")
+  }
+
+  sendEmailForPasswordReset(email:string, formData:any) {
+    return this.httpClient.post<ApiResponse>(this.passwordResetEmail + email + '/password-reset-email', '')
   }
 
 }
