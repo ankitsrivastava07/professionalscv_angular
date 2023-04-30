@@ -16,18 +16,16 @@ export class ForgetPasswordComponent {
 
   emailSentForPasswordReset(formData:any) {
 
-    const browserName = /msie\s|trident\/|edge\//i.test(window.navigator.userAgent);
-
     this.getLocation();
 
     formData = {
       "browserName" : this.getBrowserName(),
       "email": formData.email,
       "location": "",
-      "redirectUri" : window.location + '/password-reset-confirmation-email'
+      "redirectUri" : window.location.host  + '/password-reset-confirmation-email'
     }
 
-   console.log(formData)
+    console.log(formData)
     this.http.sendEmailForPasswordReset(formData.email, formData).subscribe(data => {
      if(data.status === true) {
          this.route.navigate(['/password-reset-confirmation-email'])

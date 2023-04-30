@@ -9,11 +9,11 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  loginApi = 'http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/login'
-  categoriesApi ='http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/categories'
-  articleApi = 'http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/article-slug-name/'
+  loginApi = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/login'
+  categoriesApi ='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/categories'
+  articleApi = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/article-slug-name/'
 
-  passwordResetEmail = 'http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/'
+  passwordResetEmail = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
 
   login(formData:any) {
     return this.httpClient.post<ApiResponse>(this.loginApi, formData);
