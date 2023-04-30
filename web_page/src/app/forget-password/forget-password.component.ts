@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
+import { ApiResponse } from '../api-response.model';
 
 @Component({
   selector: 'app-forget-password',
@@ -12,7 +13,7 @@ export class ForgetPasswordComponent {
   lat:number = 0;
   lng:number = 0;
 
-  apiResponse:any
+  apiResponse:ApiResponse = new ApiResponse()
 
   constructor(private http: HttpService, private route: Router) {}
 
@@ -29,6 +30,7 @@ export class ForgetPasswordComponent {
   }
 
   findAccount(formData:any) {
+    this.apiResponse = new ApiResponse();
     this.http.findAccount(formData.email).subscribe(data => {
       this.apiResponse = data
     if(this.apiResponse.status === true) {
