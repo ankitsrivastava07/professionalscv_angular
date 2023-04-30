@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { HttpService } from '../http.service';
 import { ApiResponse } from '../api-response.model';
 
@@ -13,7 +12,7 @@ export class LoginComponent {
   constructor(private httpService: HttpService) {}
 
   apiResponse: ApiResponse = new ApiResponse()
-   isValidLogin = false
+  isValidLogin = false
   
   login(formData: any) {
 

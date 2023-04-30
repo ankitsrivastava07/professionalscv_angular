@@ -9,7 +9,7 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  loginApi = 'https://ec2-43-205-75-149.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/login'
+  loginApi = 'http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/login'
   categoriesApi ='http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/categories'
   articleApi = 'http://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8080/unauthenticated/api/article-slug-name/'
 
