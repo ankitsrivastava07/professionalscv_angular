@@ -28,8 +28,8 @@ export class ForgetPasswordComponent {
     }
 
    console.log(formData)
-    this.http.sendEmailForPasswordReset(formData.email, JSON.stringify(formData)).subscribe(data => {
-     if(data.data.status === true) {
+    this.http.sendEmailForPasswordReset(formData.email, formData).subscribe(data => {
+     if(data.status === true) {
          this.route.navigate(['/password-reset-confirmation-email'])
       }
     })

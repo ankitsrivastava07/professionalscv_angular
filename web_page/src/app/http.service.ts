@@ -28,7 +28,7 @@ export class HttpService {
   }
 
   sendEmailForPasswordReset(email:string, formData:any) {
-    return this.httpClient.post<ApiResponse>(this.passwordResetEmail + email + '/password-reset-email', '')
+    return this.httpClient.post<ApiResponse>(this.passwordResetEmail + email + '/password-reset-email', formData)
   }
 
 }
