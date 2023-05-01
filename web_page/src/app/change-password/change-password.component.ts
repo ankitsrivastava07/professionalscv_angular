@@ -9,15 +9,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ChangePasswordComponent {
 
-  constructor(private http:HttpService, private route:ActivatedRoute, private router:Router) {}
+  constructor(private http:HttpService, private activatedRoute:ActivatedRoute, private router:Router) {}
 
    ngOnInit() {
-    let passwordResetToken = '' + this.route.snapshot.paramMap.get('token')
+
+   console.log(this.activatedRoute.snapshot.queryParams['token']);
+
+    console.log(this.activatedRoute.snapshot.params['id']);
+    let passwordResetToken = '' + this.activatedRoute.snapshot.params['id']
      this.http.validatePasswordResetToken(passwordResetToken).subscribe(data => {
-    console.log('Password Token ' + passwordResetToken)
-      if(data.status === true) {
-          
-      }
+    if(data.status === false) {
+        alert(data.msg)
+        this.router.navigate(['/signin'])
+     }
 
      })
    }
