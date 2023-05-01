@@ -38,8 +38,8 @@ export class HttpService {
     return this.httpClient.get<ApiResponse>(this.emailCheckApi + email + '/find')
   }
 
-  validateToken(token: string) {
-    return this.httpClient.get<ApiResponse>(this.validateToken + token + '/validate')
+  validatePasswordResetToken(token: string) {
+    return this.httpClient.get<ApiResponse>(this.validateTokenApi + token + '/validate')
   }
 
 }

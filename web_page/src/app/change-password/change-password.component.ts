@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../http.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-password',
@@ -9,18 +9,20 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 })
 export class ChangePasswordComponent {
 
-  constructor(private http:HttpService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private http:HttpService, private route:ActivatedRoute, private router:Router) {}
 
-  ngOnInit() {
-    let token = ''+this.route.snapshot.paramMap.get('token')
-    this.http.validateToken(token).subscribe(data => {
-
-      if(data.status === false) {
-        alert(data.msg)
-        this.router.navigate(['/signin'])
-        return;
+   ngOnInit() {
+    let passwordResetToken = '' + this.route.snapshot.paramMap.get('token')
+     this.http.validatePasswordResetToken(passwordResetToken).subscribe(data => {
+    console.log('Password Token ' + passwordResetToken)
+      if(data.status === true) {
+          
       }
-    }
-    )
+
+     })
+   }
+
+  passwordResetFunction(formDataPasswordReset:any){
+     alert('Password Reset Data ' + formDataPasswordReset.value)
   }
 }

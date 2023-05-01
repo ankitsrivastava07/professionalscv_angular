@@ -7,8 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { SliderComponent } from './slider/slider.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
@@ -18,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ArticleComponent } from './article/article.component';
 import { EmailSentConfirmationComponent } from './email-sent-confirmation/email-sent-confirmation.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +33,13 @@ import { EmailSentConfirmationComponent } from './email-sent-confirmation/email-
     FooterComponent,
     ComingSoonComponent,
     ArticleComponent,
-    EmailSentConfirmationComponent
+    EmailSentConfirmationComponent,
+    ChangePasswordComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    NgbModule,
-    ReactiveFormsModule,             
     AppRoutingModule,
   ],
   providers: [],
