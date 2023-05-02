@@ -26,7 +26,7 @@ export class ForgetPasswordComponent {
       this.getLocation();
 
       const emailConfirmation = {
-        "browserName" : this.getBrowserName(),
+        "browserName" : this.http.getBrowserName(),
         "email": forGetPassword.email,
         "location": "",
         "redirectUri" : window.location.origin  + '/change-password/'
@@ -56,25 +56,5 @@ export class ForgetPasswordComponent {
   callApi(Longitude: number, Latitude: number){
     const url = `https://api-adresse.data.gouv.fr/reverse/?lon=28.6785536&lat=77.266944`
   }
-
-  public getBrowserName() {
-    const agent = window.navigator.userAgent.toLowerCase()
-    switch (true) {
-      case agent.indexOf('edge') > -1:
-        return 'Edge';
-      case agent.indexOf('opr') > -1 && !!(<any>window).opr:
-        return 'Opera';
-      case agent.indexOf('chrome') > -1 && !!(<any>window).chrome:
-        return 'Chrome';
-      case agent.indexOf('trident') > -1:
-        return 'IE';
-      case agent.indexOf('firefox') > -1:
-        return 'Firefox';
-      case agent.indexOf('safari') > -1:
-        return 'Safari';
-      default:
-        return 'Other';
-    }
-}
 
 }

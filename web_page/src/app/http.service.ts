@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from './api-response.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private activatedRoute:ActivatedRoute) { }
 
   loginApi = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/login'
   categoriesApi ='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/categories'
@@ -42,4 +43,27 @@ export class HttpService {
     return this.httpClient.get<ApiResponse>(this.validateTokenApi + token + '/validate')
   }
 
+  passwordReset(formData:any, changePasswordApi:string) {
+    return this.httpClient.post<ApiResponse>(changePasswordApi, formData)
+  }
+
+  public getBrowserName() {
+    const agent = window.navigator.userAgent.toLowerCase()
+    switch (true) {
+      case agent.indexOf('edge') > -1:
+        return 'Edge';
+      case agent.indexOf('opr') > -1 && !!(<any>window).opr:
+        return 'Opera';
+      case agent.indexOf('chrome') > -1 && !!(<any>window).chrome:
+        return 'Chrome';
+      case agent.indexOf('trident') > -1:
+        return 'IE';
+      case agent.indexOf('firefox') > -1:
+        return 'Firefox';
+      case agent.indexOf('safari') > -1:
+        return 'Safari';
+      default:
+        return 'Other';
+    }
+}
 }
