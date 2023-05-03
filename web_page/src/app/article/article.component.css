@@ -1,11 +1,12 @@
 .question {
     color: #515151;
+    font-size: large;
 }
 
 img{border:0;}
 
 .ans{
-    
+    font-size: medium;
 }
 
 #format{

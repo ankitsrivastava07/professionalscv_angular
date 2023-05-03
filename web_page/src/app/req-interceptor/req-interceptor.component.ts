@@ -1,7 +1,8 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, finalize } from 'rxjs';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-req-interceptor',
@@ -12,7 +13,7 @@ import { Observable, catchError } from 'rxjs';
 @Injectable()
 export class ReqInterceptorComponent implements HttpInterceptor{
 
-  constructor(private route: Router) {}
+  constructor(private route: Router, private loadingService: LoadingService) {}
  
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -21,8 +22,17 @@ export class ReqInterceptorComponent implements HttpInterceptor{
         'sessionToken': '' + sessionStorage.getItem('sessionToken')
       })
     });
+    this.loadingService.isLoading.next(true);
 
-    return next.handle(authReq).pipe(catchError((err: any) => {
+    return next.handle(authReq).pipe(
+      finalize(
+        () => {
+          this.loadingService.isLoading.next(false);
+        }
+      )
+     ).pipe(catchError((err: any) => {
+
+      this.loadingService.isLoading.next(false);
 
       if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
@@ -37,7 +47,7 @@ export class ReqInterceptorComponent implements HttpInterceptor{
       }
 
     return new Observable<HttpEvent<any>>();
-  }));
+  }))
 }
 
 }
