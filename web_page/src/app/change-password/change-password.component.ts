@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ChangePasswordComponent {
 
-  passwordResetApi='https://44.213.204.68:8443/unauthenticated/api/'
+  passwordResetApi='https://44.213.204.68:8443/unauthenticated/api/email/'
 
   validationError:any=null
 
