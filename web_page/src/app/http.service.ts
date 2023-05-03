@@ -10,14 +10,14 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient, private activatedRoute:ActivatedRoute) { }
 
-  loginApi = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/login'
-  categoriesApi ='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/categories'
-  articleApi = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/article-slug-name/'
-  passwordResetEmail = 'https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
+  loginApi = 'https://44.213.204.68:8443/unauthenticated/api/login'
+  categoriesApi ='https://44.213.204.68:8443/unauthenticated/api/categories'
+  articleApi = 'https://44.213.204.68:8443/unauthenticated/api/article-slug-name/'
+  passwordResetEmail = 'https://44.213.204.68:8443/unauthenticated/api/'
 
-  emailCheckApi='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
+  emailCheckApi='https://44.213.204.68:8443/unauthenticated/api/'
 
-  validateTokenApi='https://ec2-3-7-13-234.ap-south-1.compute.amazonaws.com:8443/unauthenticated/api/'
+  validateTokenApi='https://44.213.204.68:8443/unauthenticated/api/'
 
   login(formData:any) {
     return this.httpClient.post<ApiResponse>(this.loginApi, formData);

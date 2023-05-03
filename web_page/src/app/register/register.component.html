@@ -122,7 +122,7 @@
                                     </div>
 
                                     <div *ngIf="username.errors && username.errors.pattern" class="emsg">
-                                        username is invalid
+                                        Username is invalid
                                     </div>
                              
                                 </div>
@@ -131,16 +131,23 @@
                         <div class="input-group">
                             <label class="label">Work Status &nbsp;</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
-                                    <option disabled="disabled" selected="selected">Select option</option>
+                                <select name="designation" #designation="ngModel" ngModel required>
+                                    <option disabled="disabled" value="{{designation}}" selected="selected">{{designation}}</option>
                                     <option value="student">Student</option>
                                     <option value="Fresher">Fresher</option>
                                     <option value="Experience">Experience</option>
                                 </select>
+
+                                <div *ngIf="designation && (designation.dirty || designation.touched)" class="emsg">
+                                    <div *ngIf="designation.errors?.['required']">
+                                        <span> Please select work status</span>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" [disabled]="registerForm.form.invalid" type="submit">Submit</button>
                         </div>
 
                         <div class="p-t-15 ">
