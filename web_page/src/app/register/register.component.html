@@ -12,19 +12,24 @@
                                 <div class="input-group">
                                     <label class="label">first name</label>
                                     <input class="input--style-4" type="text" #firstName="ngModel" ngModel name="firstName" required>
-
                                     <div *ngIf="firstName && (firstName.dirty || firstName.touched)" class="emsg">
                                         <div *ngIf="firstName.errors?.['required']">
                                             <span> Please enter first name.</span>
                                         </div>
-                                      </div>
-
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">last name</label>
-                                    <input class="input--style-4" type="text" name="lastName">
+                                    <input class="input--style-4" #lastName="ngModel" ngModel type="text"
+                                     name="lastName" required>
+                                    <div *ngIf="lastName && (lastName.dirty || lastName.touched)" class="emsg">
+                                        <div *ngIf="lastName.errors?.['required']">
+                                            <span> Please enter last name.</span>
+                                        </div>
+                                    </div>                               
+                               
                                 </div>
                             </div>
                         </div>
@@ -34,12 +39,12 @@
                                 <div class="input-group">
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                <label class="radio-container m-r-45">Male
+                                    <input type="radio" checked="checked" ngModel name="gender" required>
+                                     <span class="checkmark"></span>
+                                </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="gender" ngModel required>
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -50,34 +55,76 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" ngModel type="email" name="email" required>
+                               
+                                    <div *ngIf="email && (email.dirty || email.touched)" class="emsg">
+                                        <div *ngIf="email.errors?.['required']">
+                                            <span> Please enter email</span>
+                                        </div>
+                                    </div>  
+                                    
+                                    <div *ngIf="email.errors && email.errors.pattern" class="emsg">
+                                        Email is invalid
+                                    </div>
+                               
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="number" name="phone">
+                                    <input class="input--style-4" type="number" #mobile="ngModel" ngModel name="mobile" required>
+                                    <div *ngIf="mobile && (mobile.dirty || mobile.touched)" class="emsg">
+                                        <div *ngIf="mobile.errors?.['required']">
+                                            <span> Please enter mobile</span>
+                                        </div>
+                                    </div>     
                                 </div>
                             </div>
 
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Password</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="password" #password="ngModel" ngModel name="password" required>
+                                
+                                    <div *ngIf="password && (password.dirty || password.touched)" class="emsg">
+                                        <div *ngIf="password.errors?.['required']">
+                                            <span> Please enter password</span>
+                                        </div>
+                                    </div> 
+                                
                                 </div>
                             </div>
 
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Confirm Password</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="password" pattern="^[a-zA-Z0-9_]*$"
+                                     ngModel #confirmPassword="ngModel" name="confirmPassword" required>
+                               
+                                    <div *ngIf="confirmPassword && (confirmPassword.dirty || confirmPassword.touched)" class="emsg">
+                                        <div *ngIf="confirmPassword.errors?.['required']">
+                                            <span> Please enter confirm password</span>
+                                        </div>
+                                    </div> 
+
                                 </div>
                             </div>
                             
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Username</label>
-                                    <input class="input--style-4" type="text" name="username">
+                                    <input class="input--style-4" pattern="^[a-zA-Z0-9_]*$" type="text" #username="ngModel" ngModel name="username" required>
+                                  
+                                    <div *ngIf="username && (username.dirty || username.touched)" class="emsg">
+                                        <div *ngIf="username.errors?.['required']">
+                                            <span> Please enter username</span>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="username.errors && username.errors.pattern" class="emsg">
+                                        username is invalid
+                                    </div>
+                             
                                 </div>
                             </div>
                         </div>
