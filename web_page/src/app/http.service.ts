@@ -15,7 +15,7 @@ export class HttpService {
   articleApi = 'https://44.213.204.68:8443/unauthenticated/api/article-slug-name/'
   passwordResetEmail = 'https://44.213.204.68:8443/unauthenticated/api/'
 
-  emailCheckApi='https://44.213.204.68:8443/unauthenticated/api/'
+  emailCheckApi='https://44.213.204.68:8443/unauthenticated/api/email/'
 
   validateTokenApi='https://44.213.204.68:8443/unauthenticated/api/'
 
