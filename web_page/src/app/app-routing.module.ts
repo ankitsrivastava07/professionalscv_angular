@@ -8,6 +8,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { ArticleComponent } from './article/article.component';
 import { EmailSentConfirmationComponent } from './email-sent-confirmation/email-sent-confirmation.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { LoadingService } from './loading.service';
 
 const routes: Routes = [
   {path: '', component: SliderComponent},
@@ -25,9 +26,10 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
+
+  constructor(private loadingService: LoadingService) {}
   
   ngOnInit() {
     window.location.reload();
   }
-
  }

@@ -14,11 +14,10 @@ export class HeaderComponent {
   categories:any[] =[];
 
   constructor(private http:HttpService, private route: Router) {}
+  articles:any
 
   ngOnInit() {
-    this.http.getCategories().subscribe(data => {
-      this.categories =  data.data
-    })
+   this.articles = JSON.parse('' + localStorage.getItem('articles'))
   }
   
   get activeSlideIndex(): number {

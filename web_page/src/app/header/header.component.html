@@ -20,7 +20,7 @@
             Articles
         </a>
         <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li *ngFor ="let category of categories">
+          <li *ngFor ="let category of articles">
             <hr><a class="dropdown-item" href="article/{{category.slugName}}">{{category.name}} </a>
           </li>
         </div>
