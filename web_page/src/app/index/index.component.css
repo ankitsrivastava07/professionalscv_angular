@@ -44,8 +44,6 @@
     height: 100%;
     background-color: #fff;
     z-index: 1000;
+    opacity: 0.8;
+}
 
-}
-.loading_gif{
-  opacity: 0.9;
-}
